@@ -1,21 +1,21 @@
 **Language:** English | [简体中文](README_zh.md)
 
-# agentrt-liunx Tests (AirymaxOS Tests)
+# agentrt-linux Tests (AirymaxOS Tests)
 
 [![Version](https://img.shields.io/badge/version-0.1.1-5a6b7e)](https://atomgit.com/openairymax/airymaxos-tests)
 [![License](https://img.shields.io/badge/license-AGPL--3.0+Apache--2.0-4a90d9)](LICENSE)
 
-> Tests subsystem of [agentrt-liunx（AirymaxOS）](https://atomgit.com/openairymax/agentrt-linux) — the AI Agent Operating System.
+> Tests subsystem of [agentrt-linux（AirymaxOS）](https://atomgit.com/openairymax/agentrt-linux) — the AI Agent Operating System.
 > One of the leaf repositories aggregated by the [agentrt-linux](https://atomgit.com/openairymax/agentrt-linux) management repo.
-> Covers full-module testing for every agentrt-liunx subsystem.
+> Covers full-module testing for every agentrt-linux subsystem.
 
 ---
 
 ## Overview
 
-The **agentrt-liunx Tests (AirymaxOS Tests)** (`airymaxos-tests`) is the testing framework subsystem of agentrt-liunx（AirymaxOS）, the AI Agent Operating System. It provides unit tests, integration tests, formal verification (seL4-style), soak tests, and chaos tests across every agentrt-liunx subsystem — the quality gate for the whole operating system.
+The **agentrt-linux Tests (AirymaxOS Tests)** (`airymaxos-tests`) is the testing framework subsystem of agentrt-linux（AirymaxOS）, the AI Agent Operating System. It provides unit tests, integration tests, formal verification (seL4-style), soak tests, and chaos tests across every agentrt-linux subsystem — the quality gate for the whole operating system.
 
-In agentrt-liunx 0.1.1, this repository is **documentation complete** (文档体系完成) containing design documents, reference distribution specifications, and architectural drafts. Actual kernel and OS development takes place in version 1.0.1.
+In agentrt-linux 0.1.1, this repository is **documentation complete** (文档体系完成) containing design documents, reference distribution specifications, and architectural drafts. Actual kernel and OS development takes place in version 1.0.1.
 
 ### Core Technologies
 
@@ -27,7 +27,7 @@ In agentrt-liunx 0.1.1, this repository is **documentation complete** (文档体
 
 ### Relationship with Airymax full-module testing
 
-The agentrt-liunx Tests (AirymaxOS Tests) reuses the testing conventions, harnesses and fixtures from across the Airymax runtime platform modules. The test taxonomy, integration suites and formal-verification harnesses are shared between the user-space runtime (agentrt) and the OS-level test framework (agentrt-liunx), ensuring architectural homology with no adaptation layer.
+The agentrt-linux Tests (AirymaxOS Tests) reuses the testing conventions, harnesses and fixtures from across the Airymax runtime platform modules. The test taxonomy, integration suites and formal-verification harnesses are shared between the user-space runtime (agentrt) and the OS-level test framework (agentrt-linux), ensuring architectural homology with no adaptation layer.
 
 ## Repository Structure (0.1.1 Documentation Complete)
 
@@ -46,7 +46,7 @@ Design documents and reference distribution specifications are maintained in the
 
 ### Upstream
 
-- **All agentrt-liunx subsystems** — kernel, services, security, memory, cognition and system provide the code under test
+- **All agentrt-linux subsystems** — kernel, services, security, memory, cognition and system provide the code under test
 - **Euler standard test framework** — reference test methodology and integration test suite format
 - **seL4 verification methodology** — reference for the formal-verification harnesses
 
