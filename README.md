@@ -2,7 +2,7 @@
 
 # agentrt-linux Tests (AirymaxOS Tests)
 
-[![Version](https://img.shields.io/badge/version-0.1.1-5a6b7e)](https://atomgit.com/openairymax/airymaxos-tests)
+[![Version](https://img.shields.io/badge/version-0.1.1-5a6b7e)](https://atomgit.com/openairymax/tests-linux)
 [![License](https://img.shields.io/badge/license-AGPL--3.0+Apache--2.0-4a90d9)](LICENSE)
 
 > Tests subsystem of [agentrt-linux（AirymaxOS）](https://atomgit.com/openairymax/agentrt-linux) — the AI Agent Operating System.
@@ -13,7 +13,7 @@
 
 ## Overview
 
-The **agentrt-linux Tests (AirymaxOS Tests)** (`airymaxos-tests`) is the testing framework subsystem of agentrt-linux（AirymaxOS）, the AI Agent Operating System. It provides unit tests, integration tests, formal verification (seL4-style), soak tests, and chaos tests across every agentrt-linux subsystem — the quality gate for the whole operating system.
+The **agentrt-linux Tests (AirymaxOS Tests)** (`airymaxos-tests-linux`) is the testing framework subsystem of agentrt-linux（AirymaxOS）, the AI Agent Operating System. It provides unit tests, integration tests, formal verification (seL4-style), soak tests, and chaos tests across every agentrt-linux subsystem — the quality gate for the whole operating system.
 
 In agentrt-linux 0.1.1, this repository is **documentation complete** (文档体系完成) containing design documents, reference distribution specifications, and architectural drafts. Actual kernel and OS development takes place in version 1.0.1.
 
@@ -32,7 +32,7 @@ The agentrt-linux Tests (AirymaxOS Tests) reuses the testing conventions, harnes
 ## Repository Structure (0.1.1 Documentation Complete)
 
 ```
-airymaxos-tests/
+tests-linux/
 ├── README.md           # This file (English)
 ├── README_zh.md        # Chinese translation
 ├── LICENSE             # AGPL-3.0 + Apache-2.0 dual license
