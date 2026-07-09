@@ -2,7 +2,7 @@
 
 # agentrt-linux 测试（AirymaxOS Tests）
 
-[![Version](https://img.shields.io/badge/version-0.1.1-5a6b7e)](https://atomgit.com/openairymax/airymaxos-tests)
+[![Version](https://img.shields.io/badge/version-0.1.1-5a6b7e)](https://atomgit.com/openairymax/tests-linux)
 [![License](https://img.shields.io/badge/license-AGPL--3.0+Apache--2.0-4a90d9)](LICENSE)
 
 > [agentrt-linux（AirymaxOS）](https://atomgit.com/openairymax/agentrt-linux)（智能体操作系统）的测试子系统。
@@ -13,7 +13,7 @@
 
 ## 概述
 
-**agentrt-linux 测试（AirymaxOS Tests）**（`airymaxos-tests`）是 agentrt-linux（AirymaxOS）（智能体操作系统）的测试框架子系统。它提供单元测试、集成测试、形式化验证（seL4 风格）、Soak 测试与混沌测试，覆盖每一个 agentrt-linux 子系统——是整个操作系统的质量门。
+**agentrt-linux 测试（AirymaxOS Tests）**（`airymaxos-tests-linux`）是 agentrt-linux（AirymaxOS）（智能体操作系统）的测试框架子系统。它提供单元测试、集成测试、形式化验证（seL4 风格）、Soak 测试与混沌测试，覆盖每一个 agentrt-linux 子系统——是整个操作系统的质量门。
 
 在 agentrt-linux 0.1.1 中，本仓库为**文档体系完成**，仅包含设计文档、参考发行版规范及架构草案。实际的内核与 OS 开发在 1.0.1 版本进行。
 
@@ -32,7 +32,7 @@ agentrt-linux 测试框架复用了 Airymax 运行时平台各模块的测试约
 ## 仓库结构（0.1.1（文档体系完成））
 
 ```
-airymaxos-tests/
+tests-linux/
 ├── README.md           # 本文件（英文）
 ├── README_zh.md        # 中文翻译
 ├── LICENSE             # AGPL-3.0 + Apache-2.0 双许可证
