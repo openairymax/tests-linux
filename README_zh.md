@@ -15,7 +15,7 @@
 
 **agentrt-linux 测试（AirymaxOS Tests）**（`airymaxos-tests-linux`）是 agentrt-linux（AirymaxOS）（智能体操作系统）的测试框架子系统。它提供单元测试、集成测试、形式化验证（seL4 风格）、Soak 测试与混沌测试，覆盖每一个 agentrt-linux 子系统——是整个操作系统的质量门。
 
-在 agentrt-linux 0.1.1 中，本仓库为**文档体系完成**，仅包含设计文档、参考发行版规范及架构草案。实际的内核与 OS 开发在 1.0.1 版本进行。
+在 Airymax 0.1.1 中，本仓库为**文档体系完成**，仅包含设计文档、参考发行版规范及架构草案。实际的内核与 OS 开发在 1.0.1 版本进行。
 
 ### 核心技术
 
