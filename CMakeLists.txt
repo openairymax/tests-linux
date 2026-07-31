@@ -22,8 +22,14 @@ set(CMAKE_C_EXTENSIONS OFF)
 # [SC] 头文件引用（OS-IRON-014 / 决策 G1）
 # 唯一物理宿主：kernel/include/uapi/linux/airymax/
 # 禁止物理副本，通过 -I 引用
+#
+# 三条引用路径覆盖两种 include 风格：
+#   - <airymax/foo.h>           ← kernel/include/uapi/linux（旧风格，部分测试沿用）
+#   - <linux/airymax/foo.h>     ← kernel/include/uapi（UAPI 标准风格，[SC] 头文件内部使用）
+#   - <linux/foo.h>             ← kernel/include（内核内部头文件，仅用于 <linux/types.h> 等）
 # ---------------------------------------------------------------------------
 include_directories(${CMAKE_SOURCE_DIR}/../kernel/include)
+include_directories(${CMAKE_SOURCE_DIR}/../kernel/include/uapi)
 include_directories(${CMAKE_SOURCE_DIR}/../kernel/include/uapi/linux)
 
 # ---------------------------------------------------------------------------

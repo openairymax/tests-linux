@@ -198,6 +198,10 @@ static void test_ipc_opcodes(void)
 
 /*
  * test_cap_perms — 验证 capability 权限位
+ *
+ * SSoT: AIRY_CAP_PERM_* 常量定义在 security_types.h（ipc.h 通过
+ * #include <linux/airymax/security_types.h> 间接引入）。本测试验证
+ * security_types.h 中的 7 个权限位定义。
  */
 static void test_cap_perms(void)
 {
@@ -205,15 +209,24 @@ static void test_cap_perms(void)
 		  "AIRY_CAP_PERM_SEND == 0x0001");
 	AIRY_TEST(AIRY_CAP_PERM_RECV == 0x0002,
 		  "AIRY_CAP_PERM_RECV == 0x0002");
-	AIRY_TEST(AIRY_CAP_PERM_FREEZE == 0x0020,
-		  "AIRY_CAP_PERM_FREEZE == 0x0020");
+	AIRY_TEST(AIRY_CAP_PERM_DERIVE == 0x0004,
+		  "AIRY_CAP_PERM_DERIVE == 0x0004");
+	AIRY_TEST(AIRY_CAP_PERM_KILL == 0x0008,
+		  "AIRY_CAP_PERM_KILL == 0x0008");
+	AIRY_TEST(AIRY_CAP_PERM_FILE_OPEN == 0x0010,
+		  "AIRY_CAP_PERM_FILE_OPEN == 0x0010");
+	AIRY_TEST(AIRY_CAP_PERM_ROTATE == 0x0020,
+		  "AIRY_CAP_PERM_ROTATE == 0x0020");
+	AIRY_TEST(AIRY_CAP_PERM_SUPERVISE == 0x0040,
+		  "AIRY_CAP_PERM_SUPERVISE == 0x0040");
 
 	/* 验证权限位不重叠 */
 	uint16_t all_perms = AIRY_CAP_PERM_SEND | AIRY_CAP_PERM_RECV |
-			     AIRY_CAP_PERM_CALL | AIRY_CAP_PERM_GRANT |
-			     AIRY_CAP_PERM_REVOKE | AIRY_CAP_PERM_FREEZE |
-			     AIRY_CAP_PERM_BATCH;
+			     AIRY_CAP_PERM_DERIVE | AIRY_CAP_PERM_KILL |
+			     AIRY_CAP_PERM_FILE_OPEN | AIRY_CAP_PERM_ROTATE |
+			     AIRY_CAP_PERM_SUPERVISE;
 	AIRY_TEST(all_perms == 0x007F, "全部权限位 OR == 0x007F");
+	AIRY_TEST(AIRY_CAP_PERM_ALL == 0x007F, "AIRY_CAP_PERM_ALL == 0x007F");
 }
 
 /*
