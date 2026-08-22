@@ -1,13 +1,13 @@
 **Language:** English | [简体中文](README_zh.md)
 
-# tests-linux — agentrt-linux (AirymaxOS) Tests
+# tests-linux — agent-linux (AirymaxOS) Tests
 
 [![Version](https://img.shields.io/badge/version-0.1.1-5a6b7e)](https://atomgit.com/openairymax/tests-linux)
 [![License](https://img.shields.io/badge/license-AGPL--3.0+Apache--2.0-4a90d9)](LICENSE)
 
-> Tests subsystem of [agentrt-linux (AirymaxOS)](https://atomgit.com/openairymax/agentrt-linux) — the AI Agent Operating System.
-> One of the 8 leaf repositories aggregated by the [agentrt-linux](https://atomgit.com/openairymax/agentrt-linux) management repo.
-> Covers full-module testing for every agentrt-linux subsystem.
+> Tests subsystem of [agent-linux (AirymaxOS)](https://atomgit.com/openairymax/agent-linux) — the AI Agent Operating System.
+> One of the 8 leaf repositories aggregated by the [agent-linux](https://atomgit.com/openairymax/agent-linux) management repo.
+> Covers full-module testing for every agent-linux subsystem.
 
 Copyright (c) 2025-2026 SPHARX Ltd. All Rights Reserved.
 
@@ -16,9 +16,9 @@ Copyright (c) 2025-2026 SPHARX Ltd. All Rights Reserved.
 ## Positioning
 
 The **tests-linux** leaf repository is the testing framework subsystem of
-agentrt-linux (AirymaxOS). It aggregates the KUnit, kselftest, LTP and PCTS test
+agent-linux (AirymaxOS). It aggregates the KUnit, kselftest, LTP and PCTS test
 suites and adds integration, formal verification (seL4-style), soak and chaos
-harnesses across every agentrt-linux subsystem — the quality gate for the whole
+harnesses across every agent-linux subsystem — the quality gate for the whole
 operating system.
 
 ## Core Responsibilities
@@ -81,7 +81,7 @@ delegated to this leaf repository's own `.github/workflows/`.
 
 ## Upstream & Downstream
 
-- **Upstream** — all agentrt-linux subsystems (`kernel`, `services`, `security`, `memory`, `cognition`, `cloudnative`, `system`) provide the code under test; Euler-standard test framework; seL4 verification methodology; KUnit / kselftest / LTP / PCTS upstreams.
+- **Upstream** — all agent-linux subsystems (`kernel`, `services`, `security`, `memory`, `cognition`, `cloudnative`, `system`) provide the code under test; Euler-standard test framework; seL4 verification methodology; KUnit / kselftest / LTP / PCTS upstreams.
 - **Downstream** — CI/CD pipeline (consumes the suites as the quality gate for every change); QA (runs soak and chaos suites for release sign-off).
 
 ## License

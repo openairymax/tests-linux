@@ -15,7 +15,7 @@ License: GPL-2.0-only
 ## 1. 设计目标
 
 单元测试验证 [SC] 共享契约头文件的契约一致性，确保用户态（agentrt）
-与内核态（agentrt-linux）使用同一套常量、布局与类型。
+与内核态（agent-linux）使用同一套常量、布局与类型。
 
 | 测试 | 范围 | 状态 |
 |------|------|------|
@@ -48,8 +48,8 @@ License: GPL-2.0-only
 === AirymaxOS [SC] ipc.h 契约测试 ===
 编译时间戳: Jul 20 2026 23:42:00
 
-[PASS] /home/spharx/SpharxWorks/airymaxhub/agentrt-linux/tests-linux/unit/test_ipc_magic.c:62 AIRY_IPC_MAGIC == 0x41524531u ('ARE1')
-[PASS] /home/spharx/SpharxWorks/airymaxhub/agentrt-linux/tests-linux/unit/test_ipc_magic.c:73 AIRY_IPC_MAGIC 字符表示 == 'ARE1'
+[PASS] /home/spharx/SpharxWorks/airymaxhub/agent-linux/tests-linux/unit/test_ipc_magic.c:62 AIRY_IPC_MAGIC == 0x41524531u ('ARE1')
+[PASS] /home/spharx/SpharxWorks/airymaxhub/agent-linux/tests-linux/unit/test_ipc_magic.c:73 AIRY_IPC_MAGIC 字符表示 == 'ARE1'
 ...
 
 === 测试结果: 47/47 通过 ===
@@ -125,7 +125,7 @@ ctest -L unit --output-on-failure  # 仅运行单元测试
 | 层级 | 实体 | 说明 |
 |------|------|------|
 | `[SC]` | `ipc.h` 全部常量与结构 | 与 agentrt 共享 |
-| `[IND]` | 测试实现本身 | agentrt-linux 专属 |
+| `[IND]` | 测试实现本身 | agent-linux 专属 |
 
 agentrt 用户态有对应的 `airytests` 工具（ecosystem/airytests），
 两者通过 [SC] 共享契约，但测试实现完全独立。

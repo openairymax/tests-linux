@@ -21,7 +21,7 @@ tests-linux 子仓负责 AirymaxOS 的全部测试，包括：
 
 ### IRON-9 主层
 
-- `[IND]`：全部测试均为 agentrt-linux 专属实现
+- `[IND]`：全部测试均为 agent-linux 专属实现
 - `[SC]`：测试通过 [SC] 头文件验证契约一致性
 
 ## 2. 开发环境要求
@@ -63,7 +63,7 @@ ctest --output-on-failure
 ### 3.3 CTest 输出示例
 
 ```
-Test project /home/spharx/SpharxWorks/airymaxhub/agentrt-linux/tests-linux/build
+Test project /home/spharx/SpharxWorks/airymaxhub/agent-linux/tests-linux/build
     Start 1: test_ipc_magic
 1/1 Test #1: test_ipc_magic ....................   Passed    0.00 sec
 
