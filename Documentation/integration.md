@@ -4,7 +4,7 @@
 > **组件**：`integration/`（规划中，本文件为设计占位）
 > **[SC] 依赖**：`kernel/include/uapi/linux/airymax/*.h`
 > **协同组件**：`kernel/`、`security/`、`memory/`、`cognition/`、`services/`
-> **设计文档**：`docs/AirymaxOS/10-architecture/07-directory-structure.md` §4.8
+> **设计文档**：`docs/docs-linux/10-architecture/07-directory-structure.md` §4.8
 
 Copyright (c) 2025-2026 SPHARX Ltd. All Rights Reserved.
 

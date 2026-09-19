@@ -54,7 +54,7 @@ tests-linux/
 ```
 
 Design documents and reference distribution specifications are maintained in the
-`docs/AirymaxOS/` directory of the umbrella documentation repository.
+`docs/docs-linux/` directory of the umbrella documentation repository.
 
 ## CI Status
 

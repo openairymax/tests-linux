@@ -4,7 +4,7 @@
 > **组件**：`unit/`
 > **可编译入口**：`unit/test_ipc_magic.c` → `test_ipc_magic`
 > **[SC] 依赖**：`kernel/include/uapi/linux/airymax/ipc.h`
-> **设计文档**：`docs/AirymaxOS/10-architecture/07-directory-structure.md` §4.8
+> **设计文档**：`docs/docs-linux/10-architecture/07-directory-structure.md` §4.8
 
 Copyright (c) 2025-2026 SPHARX Ltd. All Rights Reserved.
 
