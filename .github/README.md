@@ -1,7 +1,7 @@
 # `.github/` — tests-linux Leaf Repository Automation
 
 > GitHub automation directory for the **tests-linux** leaf repository of
-> [agentrt-linux (AirymaxOS)](https://atomgit.com/openairymax/agentrt-linux).
+> [agent-linux (AirymaxOS)](https://atomgit.com/openairymax/agent-linux).
 
 Copyright (c) 2025-2026 SPHARX Ltd. All Rights Reserved.
 
@@ -11,7 +11,7 @@ Copyright (c) 2025-2026 SPHARX Ltd. All Rights Reserved.
 
 This directory hosts tests-linux-specific GitHub automation. The test suites
 (KUnit, kselftest, LTP, PCTS, formal/soak/chaos) are invoked by the management
-repository's `ci-kernel.yml` and `nightly.yml` workflows; this leaf repository
+repository's `kernel-verify.yml` and `nightly.yml` workflows; this leaf repository
 hosts language-level CI for the test harnesses, TAP parsers and fixtures.
 
 ## Directory Contents
@@ -25,9 +25,9 @@ tests-linux/.github/
 
 | Workflow | Jobs | Relevance to tests-linux |
 |----------|------|---------------------------|
-| `ci-kernel.yml` | `kernel-build` + `kernel-verify` | `kernel-verify` runs KUnit on UML (OS-TEST-001~012) and kselftest on QEMU (OS-TEST-013~022); TAP output parsed by `tools/kunit-tap-diff.py` and `tools/parse-tap.py` |
+| `kernel-verify.yml` | `kernel-build` + `kernel-verify` | `kernel-verify` runs KUnit on UML (OS-TEST-001~012) and kselftest on QEMU (OS-TEST-013~022); TAP output parsed by `tools/kunit-tap-diff.py` and `tools/parse-tap.py` |
 | `nightly.yml` | `nightly-test-suite` + `nightly-revert-or-budget` | seL4-style formal verification, 72h soak (`soak-runner.py`), chaos (`chaos-runner.py`); auto-revert via `auto-bisect.py`; 60-min CI budget check (OS-STD-TEST-011) |
-| `mgmt-orchestrator.yml` | `file-integrity` + `orchestrate-leaf-ci` | Verifies the `tests-linux/` submodule dir exists; aggregates this repo's CI status |
+| `mgmt-verify.yml` | `file-integrity` + `orchestrate-leaf-ci` | Verifies the `tests-linux/` submodule dir exists; aggregates this repo's CI status |
 | `release.yml` | `build-and-sign` + `publish-release` | `syft tests-linux/` SBOM fragment |
 
 ## Development Guide
