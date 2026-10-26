@@ -62,9 +62,9 @@ The test suites are consumed by management-repository workflows (each ≤ 2 jobs
 
 | Workflow | Jobs | Consumes tests-linux via |
 |----------|------|----------------------------|
-| `ci-kernel.yml` | `kernel-build` + `kernel-verify` | `kernel-verify` runs KUnit on UML (OS-TEST-001~012) and kselftest on QEMU (OS-TEST-013~022); TAP parsed by `tools/kunit-tap-diff.py` and `tools/parse-tap.py` |
+| `kernel-verify.yml` | `kernel-build` + `kernel-verify` | `kernel-verify` runs KUnit on UML (OS-TEST-001~012) and kselftest on QEMU (OS-TEST-013~022); TAP parsed by `tools/kunit-tap-diff.py` and `tools/parse-tap.py` |
 | `nightly.yml` | `nightly-test-suite` (seL4-style formal verification + 72h soak + chaos) + `nightly-revert-or-budget` (auto-revert or 60-min CI budget check, OS-STD-TEST-011) | Nightly cron |
-| `mgmt-orchestrator.yml` | `file-integrity` + `orchestrate-leaf-ci` | Verifies the `tests-linux/` submodule dir; aggregates this repo's CI status |
+| `mgmt-verify.yml` | `file-integrity` + `orchestrate-leaf-ci` | Verifies the `tests-linux/` submodule dir; aggregates this repo's CI status |
 | `release.yml` | `build-and-sign` (SBOM scan of `tests-linux/`) + `publish-release` | Release tag |
 
 Language-level CI (test harness lint, TAP parsers, fixture validation) is
