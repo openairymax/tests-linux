@@ -25,7 +25,7 @@ tests-linux/.github/
 
 | Workflow | Jobs | Relevance to tests-linux |
 |----------|------|---------------------------|
-| `kernel-verify.yml` | `kernel-build` + `kernel-verify` | `kernel-verify` runs KUnit on UML (OS-TEST-001~012) and kselftest on QEMU (OS-TEST-013~022); TAP output parsed by `tools/kunit-tap-diff.py` and `tools/parse-tap.py` |
+| `kernel-verify.yml` | `kernel-build` + `kernel-verify` | `kernel-verify` runs KUnit on UML (OS-TEST-001~012) and kselftest on QEMU (OS-TEST-013~022); TAP output parsed by `tools/tap/kunit-tap-diff.py` and `tools/tap/parse-tap.py` |
 | `nightly.yml` | `nightly-test-suite` + `nightly-revert-or-budget` | seL4-style formal verification, 72h soak (`soak-runner.py`), chaos (`chaos-runner.py`); auto-revert via `auto-bisect.py`; 60-min CI budget check (OS-STD-TEST-011) |
 | `mgmt-verify.yml` | `file-integrity` + `orchestrate-leaf-ci` | Verifies the `tests-linux/` submodule dir exists; aggregates this repo's CI status |
 | `release.yml` | `build-and-sign` + `publish-release` | `syft tests-linux/` SBOM fragment |
