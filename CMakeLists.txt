@@ -23,14 +23,17 @@ set(CMAKE_C_EXTENSIONS OFF)
 # 唯一物理宿主：kernel/include/uapi/linux/airymax/
 # 禁止物理副本，通过 -I 引用
 #
-# 三条引用路径覆盖两种 include 风格：
-#   - <airymax/foo.h>           ← kernel/include/uapi/linux（旧风格，部分测试沿用）
-#   - <linux/airymax/foo.h>     ← kernel/include/uapi（UAPI 标准风格，[SC] 头文件内部使用）
+# 两条引用路径覆盖两种 include 风格：
+#   - <linux/airymax/foo.h>     ← kernel/include/uapi（[SC] 头文件唯一引用形式）
 #   - <linux/foo.h>             ← kernel/include（内核内部头文件，仅用于 <linux/types.h> 等）
+#
+# 不把 kernel/include/uapi/linux 放进搜索路径：该目录下同时存在 string.h、
+# time.h、signal.h、errno.h、unistd.h 等 UAPI 头，作为 -I 根会遮蔽同名
+# libc 头。UAPI 的 string.h 自身再 #include <string.h> 时被自己的头文件
+# 守卫挡住，memset 等声明随之消失，最终以 -Werror 编译失败。
 # ---------------------------------------------------------------------------
 include_directories(${CMAKE_SOURCE_DIR}/../kernel/include)
 include_directories(${CMAKE_SOURCE_DIR}/../kernel/include/uapi)
-include_directories(${CMAKE_SOURCE_DIR}/../kernel/include/uapi/linux)
 
 # ---------------------------------------------------------------------------
 # 编译选项（OS-STD-FMT-001/002）

@@ -17,7 +17,7 @@
  *
  * 返回值：
  *   0  - 全部断言通过
- *   非 0 - 断言失败（assert 中止）
+ *   非 0 - 断言失败（打印后立即退出，等价于 assert 中止）
  *
  * 相关文档：
  *   docs/AirymaxOS/10-architecture/07-directory-structure.md §4.8
@@ -31,8 +31,8 @@
 #include <string.h>
 #include <stddef.h>
 
-/* [SC] 共享契约头文件（通过 -I../kernel/include/uapi/linux 引用） */
-#include <airymax/ipc.h>
+/* [SC] 共享契约头文件（-I kernel/include/uapi，与内核侧引用形式一致） */
+#include <linux/airymax/ipc.h>
 
 /* ─── 辅助函数 ──────────────────────────────────────────────────────── */
 
@@ -49,7 +49,7 @@ static int g_test_passed = 0;
 		} else {						\
 			fprintf(stderr, "[FAIL] %s:%d %s\n",		\
 				__FILE__, __LINE__, (msg));		\
-			return EXIT_FAILURE;				\
+			exit(EXIT_FAILURE);				\
 		}							\
 	} while (0)
 
