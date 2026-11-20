@@ -20,20 +20,26 @@ set(CMAKE_C_EXTENSIONS OFF)
 
 # ---------------------------------------------------------------------------
 # [SC] 头文件引用（OS-IRON-014 / 决策 G1）
-# 唯一物理宿主：kernel/include/uapi/linux/airymax/
-# 禁止物理副本，通过 -I 引用
+# 唯一物理宿主：kernel/include/uapi/linux/airymax/，禁止物理副本。
 #
-# 唯一引用根：kernel/include/uapi。
-#   - <linux/airymax/foo.h>     ← [SC] 头文件唯一引用形式
+# AIRY_HDR_ROOT 指向 make headers_install 的导出树（其 include/ 根），
+# 按 <linux/airymax/foo.h> 引用契约头。用户态测试只能用导出后的 UAPI：
+# 源码树的 kernel/include/uapi 里 types.h 依赖 __EXPORTED_HEADERS__，
+# stddef.h 会去找只存在于内核内部的 linux/compiler_types.h，直接引用
+# 编不过；而把 kernel/include 放进搜索路径又会让内核内部 linux/types.h
+# 与 libc 的 loff_t/uint64_t/blkcnt_t 冲突。
 #
-# 不把 kernel/include 放进搜索路径：内核内部 linux/types.h 与 libc 的
-# loff_t/uint64_t/blkcnt_t 定义冲突（cloudnative 曾因同一根而编不过）。
-# 也不把 kernel/include/uapi/linux 作为根：该目录下的 string.h、time.h、
-# signal.h、errno.h、unistd.h 会遮蔽同名 libc 头，UAPI string.h 再
-# #include <string.h> 时被自身守卫挡住，memset 等声明随之消失。
-# 用户态测试只需要 UAPI 契约头，不需要内核内部头。
+# 生成导出树（产物不落源码区）：
+#   make -C ../kernel O=<build>/kobj headers_install INSTALL_HDR_PATH=<build>/hdr
+#   cmake -S . -B <build> -DAIRY_HDR_ROOT=<build>/hdr/include
 # ---------------------------------------------------------------------------
-include_directories(${CMAKE_SOURCE_DIR}/../kernel/include/uapi)
+if(NOT AIRY_HDR_ROOT)
+	message(FATAL_ERROR
+		"AIRY_HDR_ROOT 未设置。用户态测试必须针对导出后的 UAPI 头构建："
+		"先执行 make -C ../kernel O=<build>/kobj headers_install "
+		"INSTALL_HDR_PATH=<build>/hdr，再传 -DAIRY_HDR_ROOT=<build>/hdr/include。")
+endif()
+include_directories(${AIRY_HDR_ROOT})
 
 # ---------------------------------------------------------------------------
 # 编译选项（OS-STD-FMT-001/002）
