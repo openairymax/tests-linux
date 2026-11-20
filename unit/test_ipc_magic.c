@@ -24,7 +24,6 @@
  *   kernel/include/uapi/linux/airymax/ipc.h
  */
 
-#include <assert.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>

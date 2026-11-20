@@ -23,16 +23,16 @@ set(CMAKE_C_EXTENSIONS OFF)
 # 唯一物理宿主：kernel/include/uapi/linux/airymax/
 # 禁止物理副本，通过 -I 引用
 #
-# 两条引用路径覆盖两种 include 风格：
-#   - <linux/airymax/foo.h>     ← kernel/include/uapi（[SC] 头文件唯一引用形式）
-#   - <linux/foo.h>             ← kernel/include（内核内部头文件，仅用于 <linux/types.h> 等）
+# 唯一引用根：kernel/include/uapi。
+#   - <linux/airymax/foo.h>     ← [SC] 头文件唯一引用形式
 #
-# 不把 kernel/include/uapi/linux 放进搜索路径：该目录下同时存在 string.h、
-# time.h、signal.h、errno.h、unistd.h 等 UAPI 头，作为 -I 根会遮蔽同名
-# libc 头。UAPI 的 string.h 自身再 #include <string.h> 时被自己的头文件
-# 守卫挡住，memset 等声明随之消失，最终以 -Werror 编译失败。
+# 不把 kernel/include 放进搜索路径：内核内部 linux/types.h 与 libc 的
+# loff_t/uint64_t/blkcnt_t 定义冲突（cloudnative 曾因同一根而编不过）。
+# 也不把 kernel/include/uapi/linux 作为根：该目录下的 string.h、time.h、
+# signal.h、errno.h、unistd.h 会遮蔽同名 libc 头，UAPI string.h 再
+# #include <string.h> 时被自身守卫挡住，memset 等声明随之消失。
+# 用户态测试只需要 UAPI 契约头，不需要内核内部头。
 # ---------------------------------------------------------------------------
-include_directories(${CMAKE_SOURCE_DIR}/../kernel/include)
 include_directories(${CMAKE_SOURCE_DIR}/../kernel/include/uapi)
 
 # ---------------------------------------------------------------------------
