@@ -30,27 +30,10 @@
 #include <string.h>
 #include <stddef.h>
 
-/* [SC] 共享契约头文件（-I kernel/include/uapi，与内核侧引用形式一致） */
+/* [SC] 共享契约头文件（AIRY_HDR_ROOT 指向 headers_install 导出树） */
 #include <linux/airymax/ipc.h>
 
-/* ─── 辅助函数 ──────────────────────────────────────────────────────── */
-
-static int g_test_count = 0;
-static int g_test_passed = 0;
-
-#define AIRY_TEST(cond, msg)						\
-	do {								\
-		g_test_count++;						\
-		if (cond) {						\
-			g_test_passed++;					\
-			printf("[PASS] %s:%d %s\n",			\
-			       __FILE__, __LINE__, (msg));		\
-		} else {						\
-			fprintf(stderr, "[FAIL] %s:%d %s\n",		\
-				__FILE__, __LINE__, (msg));		\
-			exit(EXIT_FAILURE);				\
-		}							\
-	} while (0)
+#include "airy_test.h"
 
 /*
  * airy_badge_compile_local - 本地实现 Badge 编译，与 [SC] 宏对比

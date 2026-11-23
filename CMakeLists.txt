@@ -62,7 +62,6 @@ enable_testing()
 
 # ---------------------------------------------------------------------------
 # 子目录
-# 0.1.1 仅 unit/test_ipc_magic 可编译，其余 1.0.1 补齐
 # ---------------------------------------------------------------------------
 add_subdirectory(unit)
 
@@ -71,6 +70,6 @@ add_subdirectory(unit)
 # ---------------------------------------------------------------------------
 add_custom_target(check
 	COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure
-	DEPENDS test_ipc_magic
+	DEPENDS test_ipc_magic test_log_ring_uapi test_superv_uapi test_error_codes
 	COMMENT "运行 AirymaxOS 全部测试"
 )
