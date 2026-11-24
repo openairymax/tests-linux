@@ -48,8 +48,8 @@ License: GPL-2.0-only
 === AirymaxOS [SC] ipc.h 契约测试 ===
 编译时间戳: Jul 20 2026 23:42:00
 
-[PASS] /home/spharx/SpharxWorks/airymaxhub/agent-linux/tests-linux/unit/test_ipc_magic.c:62 AIRY_IPC_MAGIC == 0x41524531u ('ARE1')
-[PASS] /home/spharx/SpharxWorks/airymaxhub/agent-linux/tests-linux/unit/test_ipc_magic.c:73 AIRY_IPC_MAGIC 字符表示 == 'ARE1'
+[PASS] unit/test_ipc_magic.c:62 AIRY_IPC_MAGIC == 0x41524531u ('ARE1')
+[PASS] unit/test_ipc_magic.c:73 AIRY_IPC_MAGIC 字符表示 == 'ARE1'
 ...
 
 === 测试结果: 47/47 通过 ===

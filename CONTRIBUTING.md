@@ -63,7 +63,7 @@ ctest --output-on-failure
 ### 3.3 CTest 输出示例
 
 ```
-Test project /home/spharx/SpharxWorks/airymaxhub/agent-linux/tests-linux/build
+Test project <源码树>/tests-linux/build
     Start 1: test_ipc_magic
 1/1 Test #1: test_ipc_magic ....................   Passed    0.00 sec
 
